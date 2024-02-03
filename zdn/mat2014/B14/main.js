@@ -18,5 +18,6 @@ window.nomer=[
 	17,
 	113443,
 	119979,
+	proverka
 ].iz();
 window.comment='Текстовые задачи.';
