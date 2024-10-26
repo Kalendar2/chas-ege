@@ -1,4 +1,4 @@
-(function() { retryWhileError(function() {
+((function() { retryWhileError(function() {
     let a=sluchch(1,30).pm();
     let b=sluchch(1,30).pm();
     let c=sluchch(1,30).pm();
@@ -14,5 +14,6 @@
     });	
 
 }, 20);})();
+
 //Решу ОГЭ 338495
 //VeronikaKit
