@@ -1,3 +1,7 @@
+let index1 = [0, 1, 2, 3];
+let index2 = [0, 1, 2, 3];
+index1.shuffle();
+index2.shuffle();
 let weight = 'масса';
 let a;
 let b;
@@ -6,15 +10,10 @@ let d;
 let verysmall = ['таблетки лекарства', 'комара', 'мухи', 'божьей коровки', 'капли воды', 'иголки', 'пуговицы'];
 let small = ['монеты', 'малины', 'клубники', 'вилки', 'яйца', 'ножниц', 'птицы', 'компьютерной мыши', 'картофеля'];
 let medium = ['коляски', 'собаки', 'кресла', 'холодильника', 'человека', 'шкафа'];
-let big = ['машины', 'морского ската', 'бегемота', 'носорога', 'индийского слона', 'касатки', 'грузовика', 'африканского слона', 'автобуса'];
-let array1 = [];
-let index1 = [0, 1, 2, 3];
-let index2 = [0, 1, 2, 3];
-
-index1.shuffle();
-index2.shuffle();
-
-let array3 = [];
+let big = ['машины', 'морского ската', 'бегемота', 'носорога', 'индийского слона', 'касатки', 'грузовика',
+	'африканского слона', 'автобуса'
+];
+let array1 = [];;
 let v = sluchch(0, verysmall.length - 1);
 let s = sluchch(0, small.length - 1);
 let me = sluchch(0, medium.length - 1);
@@ -25,11 +24,7 @@ b = Math.pow(s + 2, 2) + sluchch(1, 5);
 c = (me + 1) * sluchch(10, 15);
 d = (bi + 1) + (sluchch(0, 0.5, 0.1));
 
-array3[0] = verysmall[v];
-array3[1] = small[s];
-array3[2] = medium[me];
-array3[3] = big[bi];
-
+let array3 = [verysmall[v], small[s], medium[me], big[bi]];
 array1 = index2.map(index => array3[index]);
 
 let ans = [];
@@ -41,9 +36,7 @@ for (let i = 0; i < 4; i++) {
 	}
 }
 
-for (let i = 3; i >= 0; i--) {
-	ans[i] = ans[i] + 1;
-}
+ans = ans.map(value => value + 1);
 
 let array = [a + ' мг', b + ' г', c + ' кг', d + ' т'];
 
@@ -56,3 +49,5 @@ NAtask.setTask({
 		array[index1[3]],
 	answers: answer,
 });
+
+//506352
