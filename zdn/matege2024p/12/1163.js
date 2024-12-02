@@ -15,30 +15,27 @@
 		var s = sl1();
 		var znak = (v ? '+' : '-');
 		var l1 = sl1();
+		var l = sl(0, 4)
+		var chislo = [-1, -0.5, 0, 0.5, 1];
+		var abroad = sl(2, 5).pm();
 		var l2 = (l1 + 1) % 2;
 		var l3 = sl(0, 2);
 		var sc = ['sin', 'cos'];
 		var pm = ['', '-'];
 		var mass = [pm[l1] + sc[l2] + '(n1+ pi/2)', pm[l2] + sc[l2] + '(n1+ 3pi/2)',
-			pm[l2] + sc[l2] + '(n1- pi/2)', pm[l1] + sc[l2] + '(n1- 3pi/2)'];
-		var ot = ['\\frac{\\pi}{6}', '\\frac{5\\pi}{6}', '\\frac{7\\pi}{6}', '\\frac{11\\pi}{6}',
-			'\\frac{\\pi}{3}','\\frac{5\\pi}{3}', '\\frac{2\\pi}{3}', '\\frac{4\\pi}{3}'];
-
-		var vet = 0;
-		if (l1 == 1) {
-			if (znak + '1' < 0) {
-				vet = 4;
-			} else {
-				vet = 6;
-			}
+			pm[l2] + sc[l2] + '(n1- pi/2)', pm[l1] + sc[l2] + '(n1- 3pi/2)'
+		];
+		var otvetsin = ['\\frac{\\pi}{2}', '\\frac{\\pi}{6}', '\\pi', '\\frac{5 \\pi}{6}', '\\frac{3\\pi}{2}'];
+		var otvetcos = ['', '\\frac{\\pi}{3}', '\\frac{\\pi}{2}', '\\frac{2 \\pi}{3}', '\\pi'];
+		var otvet;
+		if (l1) {
+			otvet = otvetcos;
 		} else {
-			if (znak + '1' > 0) {
-				vet = 2;
-			}
+			otvet = otvetsin;
 		}
 
-		var mult1 = math.parse(sc[l1] + '(x)' + znak + '1/2');
-		var mult2 = math.parse(sc[l1] + '(x)' + znak + '2');
+		var mult1 = math.parse(sc[l1] + '(x) +' + chislo[l]);
+		var mult2 = math.parse(sc[l1] + '(x) + ' + abroad);
 		var a = sl(2, 9);
 		var b = sl(2, 9);
 		a = String(a);
@@ -95,9 +92,9 @@
 				'$$' + e5.toTex() + '=0' + '$$' +
 				'$$' + e4.toTex() + '=0' + '$$' +
 				'$$' + e2.toTex() + '=0' + '$$' +
-				'$$\\quad \\' + sc[l1] + ' x' + znak + '\\frac{1}{2}=0 \\quad \\' + sc[l1] + ' x' + znak + '2=0 $$' +
-				'$$x= ' + ot[vet] + '+2 \\pi k,\\quad x= ' + ot[vet + 1] + '+2 \\pi k,\\quad k \\in \\mathbb {Z}' + '$$',
-			answers: sc[l1] + znak + '1/2=0 ' + sc[l1] + znak + '2=0',
+				'$$\\quad \\' + sc[l1] + ' x +' + chislo[l] + '=0 \\quad \\' + sc[l1] + ' x +' + abroad + '=0 $$' +
+				'$$x= \\pm' + otvet[l] + '+2 \\pi k,\\quad k \\in \\mathbb {Z}' + '$$',
+			answers: sc[l1] + ' + ' + chislo[l] + '=0 ' + sc[l1] + ' + ' + abroad + '=0',
 		});
 		return true;
 	});
