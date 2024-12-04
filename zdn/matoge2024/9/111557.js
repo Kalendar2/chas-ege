@@ -20,4 +20,4 @@
 	NAtask.modifiers.allDecimalsToStandard(/*true*/);
 }, 2000);})();
 //VeronikaKit
-//Решу ЕГЭ 26586
+//Решу ЕГЭ 111557
