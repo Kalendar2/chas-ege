@@ -3,6 +3,7 @@
     let e=slKrome(d,1,30).pm();
     let c=d*e;
     let b=d+e;
+    genAssert(b!=0, 'Множитель не должен равняться нулю');
     genAssertZ1000(d,'Корень не должен быть слишком дробным');
     genAssertZ1000(e,'Корень не должен быть слишком дробным');
     NAtask.setEquationTask({
