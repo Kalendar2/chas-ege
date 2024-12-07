@@ -1,12 +1,12 @@
 (function() { 'use strict'; retryWhileError(function() {
-	let s=sl(1, 200, 1);
+	let s=sl(1, 200);
 	let n=sl(1, 10, 1);
 	let a=sl(1, 15, 1);
 	let v=(a**2*n**2+2*s*a*n).sqrt();
-    let x=v/n;
+        let x=v/n;
 	genAssert(x>0,'Скорость не может быть отрицательной'); //Заготовочка!
 	genAssertZ1000(x,'Скорость не должна быть слишком дробной'); //Заготовочка!
-    let the_activeFloatingVehicle = sklonlxkand(["лодка","байдарка","баржа","яхта","моторная лодка"].iz());
+        let the_activeFloatingVehicle = sklonlxkand(["лодка","байдарка","баржа","яхта","моторная лодка"].iz());
 	let the_humanSettlementDestination = sklonlxkand(["пункт","город"].iz()); 
 	let the_orderToFind = decor.orderToFind.iz(); // ["найдите","определите","вычислите"]
         NAtask.setTask({
