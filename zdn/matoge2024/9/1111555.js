@@ -3,7 +3,7 @@
     let b=sluchch(1,10).pm();
     let c=sluchch(1,10).pm();
     let e=(a**2+c);
-    let f=a*b;
+    let f=2*a*b;
     let g=b**2;
     let n=f**2-4*e*g;
     let d=(-f+Math.sqrt(n))/(2*a**2+2*c);
