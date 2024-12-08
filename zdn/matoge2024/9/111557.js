@@ -6,7 +6,7 @@
         let x=v/n;
 	genAssert(x>0,'Скорость не может быть отрицательной'); //Заготовочка!
 	genAssertZ1000(x,'Скорость не должна быть слишком дробной'); //Заготовочка!
-        let the_activeFloatingVehicle = decor.activeFloatingVehicleF.iz();
+        let the_activeFloatingVehicle = sklonlxkand(decor.activeFloatingVehicleF.iz());
 	let the_humanSettlementDestination = sklonlxkand(["пункт","город"].iz()); 
 	let the_orderToFind = decor.orderToFind.iz(); // ["найдите","определите","вычислите"]
         NAtask.setTask({
