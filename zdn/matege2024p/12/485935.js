@@ -12,9 +12,7 @@
 			}]);
 		};
 
-		var v = sl1();
 		var l1 = sl1();
-		var znak = (v ? '+' : '-');
 		var l = sl(0, 4)
 		var chislo = [-1, -0.5, 0, 0.5, 1];
 		var abroad = sl(2, 5).pm();
@@ -31,25 +29,18 @@
 		var a = String(sl(2, 9));
 
 		var prod = new math.OperatorNode('*', 'multiply', [mult1, mult2]);
-		var e2 = math.simplify(prod, [{
-			r: 'n1*n3 + n2*n3',
-			l: '(n1+n2)*n3'
-		}]);
+		var e2 = math.expandProdSums(prod);
 		var e3 = math.simplify(e2);
 		var e4 = new math.OperatorNode('*', 'multiply', [math.parse(a), e3]);
-		var e5 = math.simplify(e4, [{
-			r: 'n1*n3 + n2*n3',
-			l: '(n1+n2)*n3'
-		}]);
+		var e5 = math.expandProdSums(e4);
 		var e6 = math.simplify(e5);
-		var e7 = math.simplify(e6, [{
-			r: 'n1*n3 + n2*n3',
-			l: '(n1+n2)*n3'
-		}]);
+		var e7 = math.expandProdSums(e6);
+
 
 		chas2.task.setTask({
 			text: 'Решите уравнение: ' + "$$" + e7.toTex() + '=0' + "$$",
 			analys: '$$' + e7.toTex() + '=0' + '$$' +
+				'$$' + e6.toTex() + '=0' + '$$' +
 				'$$' + e5.toTex() + '=0' + '$$' +
 				'$$' + e4.toTex() + '=0' + '$$' +
 				'$$' + e2.toTex() + '=0' + '$$' +
