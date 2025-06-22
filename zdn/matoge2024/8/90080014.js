@@ -2,7 +2,7 @@
 	retryWhileError(function() {
 		'use strict';
 		let e1 = sl(2, 9).pm();
-		let e2 = sl(1, 9).pm();
+		let e2 = sl(2, 9).pm();
 		let e3 = e1 * e2 + sl(1, 5).pm();
 
 		NAtask.setEvaluationTask({
