@@ -1,19 +1,19 @@
 'use strict';
 
 
-function generateHtmlForTask(category,taskNumber,actionsArray){
-	var htmlContent='';
+function generateHtmlForTask(kat,zdn,masdey){
+	var rez='';
 	vopr.podg();
-	var currentTaskPath = nabor.adres+category+'/'+taskNumber+'.js';
-	htmlContent+='<div class="task-wrapper" data-category="'+category+'" data-tasknumber="'+taskNumber+'">';
-	htmlContent+=currentTaskPath.vTag('h2');
-	console.log(currentTaskPath);
+	var currentTask = nabor.adres+kat+'/'+zdn+'.js';
+	rez+='<div class="task-wrapper" data-category="'+kat+'" data-tasknumber="'+zdn+'">';
+	rez+=currentTask.vTag('h2');
+	console.log(currentTask);
 	try{
-		nabor.upak[category][taskNumber]();
-		vopr.template = currentTaskPath.replace(/^(\.\.\/)+/,'');
-		vopr.taskNumber = category;
-		htmlContent+=('<br/>'+vopr.txt.vTag('div')+'<br/>');
-		htmlContent+=(
+		nabor.upak[kat][zdn]();
+		vopr.template = currentTask.replace(/^(\.\.\/)+/,'');
+		vopr.taskNumber = kat;
+		rez+=('<br/>'+vopr.txt.vTag('div')+'<br/>');
+		rez+=(
 			(
 				'<button class="copybutton" style="display:block; float:right;" title="Экспорт в РешуЕГЭ"'+
 				'data-task="' + encodeURIComponent(JSON.stringify(vopr)) + '"' +
@@ -35,9 +35,9 @@ function generateHtmlForTask(category,taskNumber,actionsArray){
 			).vTag('div') +
 			'<br/>'
 		);
-		actionsArray.push(vopr.dey);
+		masdey.push(vopr.dey);
 		if(vopr.rsh){
-			htmlContent+=(
+			rez+=(
 				('Показать решение ').vTag('button','class="spoiler-show"')+
 				('Скрыть   решение ').vTag('button','class="spoiler-hide"')+
 				'<div class="spoiler-body">'+
@@ -48,7 +48,7 @@ function generateHtmlForTask(category,taskNumber,actionsArray){
 
 		}
 		if(vopr.authors && vopr.authors.length){
-			htmlContent+=(
+			rez+=(
 				'<br/>' +
 				'<div class="katalog-authors">' +
 						'Автор' + ('ы').esli(vopr.authors.length > 1) + ': &nbsp;' +
@@ -60,8 +60,8 @@ function generateHtmlForTask(category,taskNumber,actionsArray){
 	}catch(e){
 		console.log(e);
 	}
-	htmlContent += '</div>';
-	return htmlContent;
+	rez += '</div>';
+	return rez;
 }
 
 function generateKatalog(){
