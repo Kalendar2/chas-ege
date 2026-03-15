@@ -2,9 +2,6 @@
     'use strict';
     retryWhileError(function () {
         NAinfo.requireApiVersion(0, 2);
-        let key = '77344';
-        let preference = ['findAll', 'findPercent', 'findWinners'];
-        let rand = getSelectedPreferenceFromList(key, preference);
 
         let subject = sklonlxkand(['математика', 'физика', 'география', 'биология', 'химия', 'астрономия', 'обществознание', 'история', 'литература'].iz());
         let place = ['городской', 'областной', 'школьной',].iz();
@@ -17,7 +14,7 @@
         NAtask.setTask({
             text:
                 'Призерами ' + place + ' олимпиады по ' + subject.pe,
-            questions: [[
+            questions: [
                 {
                     text: ' стали ' + chislitlx(result, 'ученик') + ', ' +
                         'что составило ' + percent + '% от числа участников. ' +
@@ -36,7 +33,7 @@
                         'Сколько человек стали призёрами в олимпиаде',
                     answers: result,
                 },
-            ][rand]],
+            ],
             postquestion: '?',
         });
     }, 100);
